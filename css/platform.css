@@ -298,3 +298,72 @@ button.owner:hover { filter: brightness(1.12); }
 
 .empty { color: var(--muted); font-size: 0.84rem; padding: 18px 0; text-align: center; }
 .foot-note { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.76rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+/* Website brand alignment: original wordmark, black/purple framing and readable work surfaces. */
+:root { --brand: #8B00FF; --teal: #007D65; }
+.topbar { background: #101014; border-bottom: 1px solid #34253f; }
+.topbar-inner { min-height: 88px; }
+.brand { gap: 22px; color: #fff; }
+.brand img { width: 180px; height: auto; object-fit: contain; border-radius: 0; }
+.brand > span { border-left: 1px solid #51425e; padding-left: 22px; }
+.brand .b-name { font-size: .78rem; }
+.brand .b-name span { color: #e4ccff; }
+.brand .b-tag { color: #c5bdce; font-size: .55rem; margin-top: 4px; }
+.acting { color: #c5bdce; }
+.acting select { min-height: 40px; background: #242029; color: #fff; border-color: #51425e; }
+.page-head { padding: 28px 30px; border-radius: 16px; background: linear-gradient(115deg, #141217, #271334 72%, #491078); color: #fff; margin-top: 28px; gap: 24px; }
+.page-head > div { min-width: 0; }
+.page-head h1 { font-size: clamp(1.5rem, 3vw, 2rem); overflow-wrap: anywhere; }
+.page-head .sub { color: #d8cfdf; max-width: 66ch; margin-top: 10px; line-height: 1.7; }
+.page-head .eyebrow { color: #d4a8ff; margin-bottom: 10px; }
+/* Workspace inline status colors use these locally scoped accessible variants. */
+.page-head { --muted: #d8cfdf; --red: #ffb4ad; --amber: #ffcf7e; --teal: #79e0c2; }
+.btn { min-height: 40px; transition: background-color .15s, border-color .15s; }
+.btn.primary { background: linear-gradient(120deg, #8B00FF, #6A0DAD); box-shadow: 0 4px 14px #8b00ff26; }
+.btn.primary:hover { background: #6A0DAD; }
+.p-card { padding: 24px; gap: 9px; box-shadow: 0 4px 18px #241b3307; }
+.p-card:hover { box-shadow: 0 6px 24px #6a0dad16; }
+.p-card .acr { font-size: 1.15rem; }
+.p-card .title { line-height: 1.65; }
+.p-card.new { background: #f4f0fa; }
+.meter { height: 8px; }
+.meter i { background: linear-gradient(90deg, #6A0DAD, #8B00FF); }
+.tabs { gap: 6px; padding: 5px; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+.tab { min-height: 44px; border-radius: 8px; }
+.tab.on { background: var(--brand-soft); border-bottom-color: var(--brand); }
+.doc-row .d-note { overflow-wrap: anywhere; }
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 200; padding: 12px 20px; background: #fff; color: #6A0DAD; border-radius: 8px; }
+.skip-link:focus { top: 12px; }
+.topbar :focus-visible, .page-head :focus-visible { outline-color: #dfb6ff; }
+@media (max-width: 600px) {
+  .wrap { padding: 0 16px 48px; }
+  .topbar-inner { padding: 14px 16px; flex-wrap: wrap; gap: 12px; }
+  .brand { gap: 12px; }
+  .brand img { width: 148px; }
+  .brand > span { padding-left: 12px; }
+  .brand .b-tag { display: none; }
+  .topbar .spacer { display: none; }
+  .acting { width: 100%; justify-content: space-between; }
+  .acting select { max-width: 70%; }
+  .page-head { padding: 24px 20px; margin-top: 20px; }
+  .page-head > .btn { width: 100%; }
+  .card-grid { grid-template-columns: minmax(0, 1fr); }
+  .kanban { grid-template-columns: minmax(0, 1fr); }
+  .doc-row, .mile-row { flex-wrap: wrap; gap: 10px; }
+  .doc-row .d-main { flex-basis: 100%; }
+  .doc-row .d-actions { flex-wrap: wrap; }
+  .mile-row .m-name { flex-basis: 65%; }
+  .feed li { flex-wrap: wrap; }
+  .feed .txt { flex: 1; min-width: 150px; }
+  .review-actions { flex-wrap: wrap; }
+  .btn.small, button.chip, button.owner { min-height: 36px; }
+  button.owner { min-width: 36px; }
+  .modal { padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+}
+@media (max-width: 600px) {
+  .panel h3 { flex-wrap: wrap; gap: 12px; }
+  .panel h3 > span { display: flex; flex-wrap: wrap; gap: 8px; }
+}

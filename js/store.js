@@ -32,7 +32,20 @@ function fmtDate(iso) {
 function loadState() {
   try {
     const raw = localStorage.getItem(STORE_KEY);
-    if (raw) { state = JSON.parse(raw); return state; }
+    if (raw) {
+      state = JSON.parse(raw);
+      // Keep stable IDs so existing assignments, comments and activity survive.
+      const personas = {
+        ma: { name: "Mohaiad", initials: "MA" },
+        lr: { name: "Alessio", initials: "AB" },
+        sk: { name: "Karen", initials: "KA" }
+      };
+      state.users.forEach(user => {
+        if (personas[user.id]) Object.assign(user, personas[user.id]);
+      });
+      saveState();
+      return state;
+    }
   } catch (e) { /* corrupted state falls through to reseed */ }
   state = seedState();
   saveState();
@@ -131,9 +144,9 @@ function logActivityAs(proposal, userId, text) {
 
 function seedState() {
   const users = [
-    { id: "ma", initials: "MA", name: "Mohaiad (you)", color: "#6A0DAD" },
-    { id: "lr", initials: "LR", name: "Laura — co-applicant", color: "#C2410C" },
-    { id: "sk", initials: "SK", name: "Stefan — host supervisor", color: "#00997A" }
+    { id: "ma", initials: "MA", name: "Mohaiad", color: "#6A0DAD" },
+    { id: "lr", initials: "AB", name: "Alessio", color: "#C2410C" },
+    { id: "sk", initials: "KA", name: "Karen", color: "#00997A" }
   ];
   state = { users, currentUser: "ma", proposals: [] };
 
